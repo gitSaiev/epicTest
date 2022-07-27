@@ -1,0 +1,12 @@
+spring:
+
+  liquibase:
+    enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+springdoc:
+ swagger-ui:
+   path: /swagger-ui.html
