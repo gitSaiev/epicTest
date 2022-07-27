@@ -1,12 +1,27 @@
-spring:
+server:
+  port: 8189
 
-  liquibase:
-    enabled: false
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/epic-test
+    username: root
+    password: root
 
   jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+
+  liquibase:
+    change-log: classpath:db/changelog/liquibase-changeLog.xml
+    enabled: true
 
 springdoc:
- swagger-ui:
-   path: /swagger-ui.html
+  swagger-ui:
+    path: /swagger-ui.html
+
