@@ -1,13 +1,12 @@
-package ru.saiev.epictest.controllers;
+package ru.saiev.epictest.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.saiev.epictest.exceptions.CountNotFoundException;
 
 @ControllerAdvice
-public class ExceptionController {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = CountNotFoundException.class)
     public ResponseEntity<?> handleCountNotFoundException(CountNotFoundException countNotFoundException) {
