@@ -13,4 +13,5 @@ public interface CountService {
 
     Count incrementCountById(CounterDto counterDto);
 
+    Count save(Count count);
 }

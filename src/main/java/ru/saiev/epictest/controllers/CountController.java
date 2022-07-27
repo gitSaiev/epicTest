@@ -5,7 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.saiev.epictest.dto.CounterDto;
@@ -19,7 +21,6 @@ import ru.saiev.epictest.services.ValidationService;
 public class CountController {
 
     private final CountService countService;
-    private final ValidationService validationService;
 
     @GetMapping("/count")
     @Tag(name = "CountController", description = "Получить count по id")
@@ -28,9 +29,14 @@ public class CountController {
     }
 
     @PostMapping("/count")
+    @Tag(name = "CountController", description = "Сохранить count")
+    public ResponseEntity<Count> saveCount(@RequestBody Count count) {
+        return new ResponseEntity<>(countService.save(count), HttpStatus.OK);
+    }
+
+    @PatchMapping("/count")
     @Tag(name = "CountController", description = "Инкрементировать count по id")
-    public ResponseEntity<Count> incrementCount(CounterDto counterDto) {
-        validationService.validateIncrementValue(counterDto.getIncrementCount());
+    public ResponseEntity<Count> incrementCount(@RequestBody CounterDto counterDto) {
         return new ResponseEntity<>(countService.incrementCountById(counterDto), HttpStatus.OK);
     }
 }

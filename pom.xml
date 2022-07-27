@@ -67,6 +67,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <image>
+                        <name>docker.io/muhammad_saiev/test_task_1000:latest</name>
+                    </image>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
