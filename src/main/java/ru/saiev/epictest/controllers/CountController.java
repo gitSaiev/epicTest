@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,12 +28,6 @@ public class CountController {
     }
 
     @PostMapping("/count")
-    @Tag(name = "CountController", description = "Сохранить count")
-    public ResponseEntity<Count> saveCount(@RequestBody Count count) {
-        return new ResponseEntity<>(countService.save(count), HttpStatus.OK);
-    }
-
-    @PatchMapping("/count")
     @Tag(name = "CountController", description = "Инкрементировать count по id")
     public ResponseEntity<Count> incrementCount(@RequestBody CounterDto counterDto) {
         return new ResponseEntity<>(countService.incrementCountById(counterDto), HttpStatus.OK);
