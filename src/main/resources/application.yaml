@@ -1,10 +1,8 @@
-server:
-  port: 8189
-
 spring:
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/epic-test
+    url: jdbc:mysql://localhost:3308/epic-test
     username: root
     password: root
 
@@ -19,9 +17,11 @@ spring:
 
   liquibase:
     change-log: classpath:db/changelog/liquibase-changeLog.xml
-    enabled: true
+    enabled: false
 
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+server:
+  port: 8190
 

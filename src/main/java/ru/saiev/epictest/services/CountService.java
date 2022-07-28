@@ -1,12 +1,15 @@
 package ru.saiev.epictest.services;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import ru.saiev.epictest.repositories.CountRepository;
 
-@Service
-@RequiredArgsConstructor
-public class CountService {
+import ru.saiev.epictest.dto.CounterDto;
+import ru.saiev.epictest.entities.Count;
 
-    private final CountRepository countRepository;
+
+public interface CountService {
+
+    Count getCountById(Integer id);
+
+    Count incrementCountById(CounterDto counterDto);
+
+    Count save(Count count);
 }

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.saiev.epictest.entities.Count;
 
 @Repository
-public interface CountRepository extends JpaRepository<Count, Long> {
+public interface CountRepository extends JpaRepository<Count, Integer> {
 }
