@@ -14,7 +14,7 @@ public class ExceptionController {
         return new ResponseEntity<>(countNotFoundException.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(value = CountNotFoundException.class)
+    @ExceptionHandler(value = IncrementCountException.class)
     public ResponseEntity<?> handleIncrementCountException(IncrementCountException incrementCountException) {
         return new ResponseEntity<>(incrementCountException.getMessage(), HttpStatus.BAD_REQUEST);
     }
