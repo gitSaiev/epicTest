@@ -18,7 +18,7 @@ public class CountServiceImpl implements CountService {
     private final CountRepository countRepository;
     private final ValidationService validationService;
 
-    public Count getCountById(Long id) {
+    public Count getCountById(Integer id) {
         return countRepository.findById(id).orElseThrow(() -> new CountNotFoundException(MESSAGE));
     }
 

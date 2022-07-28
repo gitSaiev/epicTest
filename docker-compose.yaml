@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  database:
+    image: mysql
+    container_name: mysql-saiev
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: epic-test
+    ports:
+      - '3308:3306'
+
+  epic-test:
+    image: epictest:latest
+    container_name: epictest
+    ports:
+      - '8189:8190'
+    depends_on:
+      - database

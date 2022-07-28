@@ -11,6 +11,6 @@ import lombok.Setter;
 @Getter
 public class CounterDto {
 
-    private Long counterId;
+    private Integer counterId;
     private int incrementCount;
 }

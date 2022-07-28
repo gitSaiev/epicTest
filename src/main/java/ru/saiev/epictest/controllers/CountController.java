@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.saiev.epictest.dto.CounterDto;
 import ru.saiev.epictest.entities.Count;
 import ru.saiev.epictest.services.CountService;
-import ru.saiev.epictest.services.ValidationService;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,7 +23,7 @@ public class CountController {
 
     @GetMapping("/count")
     @Tag(name = "CountController", description = "Получить count по id")
-    public ResponseEntity<Count> getCount(Long id) {
+    public ResponseEntity<Count> getCount(Integer id) {
         return new ResponseEntity<>(countService.getCountById(id), HttpStatus.OK);
     }
 

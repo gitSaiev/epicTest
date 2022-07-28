@@ -9,7 +9,7 @@ public class ValidationServiceImpl implements ValidationService {
 
     @Override
     public void validateIncrementValue(int incrementCount) {
-        if (incrementCount < 0) {
+        if (incrementCount <= 0) {
             throw new IncrementValueException("Illegal increment value");
         }
     }

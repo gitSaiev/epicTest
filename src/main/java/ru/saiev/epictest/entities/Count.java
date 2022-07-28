@@ -13,17 +13,15 @@ import javax.persistence.Table;
 @Entity
 @Table(schema = "epic-test", name = "count")
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 public class Count {
 
     @Id
-    private Long id;
+    private Integer id;
 
     @Column(name = "value")
     private int value;
 
-    public Count(int value) {
-        this.value = value;
-    }
 }
