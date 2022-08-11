@@ -1,0 +1,26 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="liquibase" id="1">
+        <preConditions>
+            <not>
+                <tableExists schemaName="epic-data" tableName="counters"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="epic-data" tableName="counters" remarks="Counters">
+            <column name="id" type="BIGINT" remarks="Unique meter ID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="counter" type="BIGINT" remarks="Counter that will be increment"/>
+            <column name="counterType" type="VARCHAR(255)" remarks="Third column"/>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -7,7 +7,7 @@ services:
     container_name: mysql-saiev
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: epic-test
+      MYSQL_DATABASE: epic-data
     ports:
       - '3308:3306'
 

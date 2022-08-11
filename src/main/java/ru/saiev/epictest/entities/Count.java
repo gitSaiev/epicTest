@@ -5,13 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(schema = "epic-test", name = "count")
+@Table(schema = "epic-data", name = "counters")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -19,9 +16,10 @@ import javax.persistence.Table;
 public class Count {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "value")
+    @Column(name = "counter")
     private int value;
 
 }
